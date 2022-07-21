@@ -11,15 +11,26 @@ public class MarkdownParse {
         ArrayList<String> toReturn = new ArrayList<>();
         // find the next [, then find the ], then find the (, then read link upto next )
         int currentIndex = 0;
+        int openBracket = 0;
+        int closeBracket = 0;
+        int openParen = 0;
+        int closeParen = 0;
         while(currentIndex < markdown.length()) {
-            int openBracket = markdown.indexOf("[", currentIndex);
-            int closeBracket = markdown.indexOf("]", openBracket);
-            int openParen = markdown.indexOf("(", closeBracket);
-            int closeParen = markdown.indexOf(")", openParen);
+            openBracket = markdown.indexOf("[", currentIndex);
+            closeBracket = markdown.indexOf("]", openBracket);
+            openParen = markdown.indexOf("(", closeBracket);
+            closeParen = markdown.indexOf(")", openParen);
+            if(openBracket == -1 || closeBracket ==-1 || openParen ==-1 || closeParen ==-1){
+                break;
+            }
+            else{
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
+                if(currentIndex==0){
+                    break;
+                }
+            }
         }
-
         return toReturn;
     }
 
