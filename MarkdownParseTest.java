@@ -91,7 +91,7 @@ public class MarkdownParseTest {
         String ActualContent = Files.readString(fileName);
         ArrayList<String> ExpectedContent = new ArrayList<>();
         ExpectedContent.add("b.com");
-        ExpectedContent.add("an--image.jpeg");
+        ExpectedContent.add("an-image.jpeg");
         ExpectedContent.add("a-link.html");
 	    assertEquals(MarkdownParse.getLinks(ActualContent), ExpectedContent);
     }
