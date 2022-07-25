@@ -87,7 +87,7 @@ public class MarkdownParseTest {
 
     @Test
     public void testSpaceAndImageinLink() throws IOException{
-        Path fileName = Path.of("../markdown-parser/space-in-link-and-image-in-link.md");
+        Path fileName = Path.of("./space-in-link-and-image-in-link.md");
         String ActualContent = Files.readString(fileName);
         ArrayList<String> ExpectedContent = new ArrayList<>();
         ExpectedContent.add("b.com");
