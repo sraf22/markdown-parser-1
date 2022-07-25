@@ -9,30 +9,31 @@ public class MarkdownParse {
 
     public static ArrayList<String> getLinks(String markdown) {
         ArrayList<String> toReturn = new ArrayList<>();
-        // find the next [, then find the ], then find the (, then read link upto next )
+        //find the next [, then find the ], then find the (, then read link up to the next )
         int currentIndex = 0;
         int openBracket = 0;
         int closeBracket = 0;
         int openParen = 0;
         int closeParen = 0;
-        while(currentIndex < markdown.length()) {
+        while(currentIndex < markdown.length()){
             openBracket = markdown.indexOf("[", currentIndex);
             closeBracket = markdown.indexOf("]", openBracket);
             openParen = markdown.indexOf("(", closeBracket);
             closeParen = markdown.indexOf(")", openParen);
-            if(openBracket == -1 || closeBracket ==-1 || openParen ==-1 || closeParen ==-1){
+            if(openBracket == -1 || closeBracket == -1 || openParen == -1 || closeParen == -1){
                 break;
             }
             else{
-            toReturn.add(markdown.substring(openParen + 1, closeParen));
-            currentIndex = closeParen + 1;
-                if(currentIndex==0){
-                    break;
-                }
+                toReturn.add(markdown.substring(openParen + 1 , closeParen));
+                currentIndex = closeParen + 1;
+                    if(currentIndex == 0){
+                        break;
+                    }
             }
         }
         return toReturn;
     }
+
 
 
     public static void main(String[] args) throws IOException {

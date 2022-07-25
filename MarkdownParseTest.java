@@ -85,6 +85,17 @@ public class MarkdownParseTest {
 	    assertEquals(MarkdownParse.getLinks(ActualContent), ExpectedContent);
     }
 
+    @Test
+    public void testSpaceAndImageinLink() throws IOException{
+        Path fileName = Path.of("../markdown-parser/space-in-link-and-image-in-link.md");
+        String ActualContent = Files.readString(fileName);
+        ArrayList<String> ExpectedContent = new ArrayList<>();
+        ExpectedContent.add("b.com");
+        ExpectedContent.add("an-image.jpeg");
+        ExpectedContent.add("a-link.html");
+	    assertEquals(MarkdownParse.getLinks(ActualContent), ExpectedContent);
+    }
+
 
 
 
