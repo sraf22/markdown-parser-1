@@ -10,7 +10,7 @@ public class MarkdownParseTest {
 
     @Test
     public void addition() {
-        assertEquals(555, 1 + 1);
+        assertEquals(2, 1 + 1);
     }
 
     @Test 
@@ -18,7 +18,7 @@ public class MarkdownParseTest {
         Path fileName = Path.of("./test-file.md");
         String ActualContent = Files.readString(fileName);
         ArrayList<String> ExpectedContent = new ArrayList<>();
-        ExpectedContent.add("https://something.com");
+        ExpectedContent.add("https://SOMETHING_TO_CAUSE_FAILURE.com");
         ExpectedContent.add("some-thing.html");
 	    assertEquals(MarkdownParse.getLinks(ActualContent), ExpectedContent);
     }
